@@ -819,12 +819,6 @@ func init() {
 		Body: map[string]interface{}{},
 
 		Code: func(c *fiber.Ctx) error {
-			var total any = VS.Read("pinterest")
-			if total == nil {
-				total = 0
-			}
-			VS.Write("pinterest", total.(int)+1)
-
 			params := new(IDQuery)
 
 			if err := c.QueryParser(params); err != nil {
@@ -928,8 +922,6 @@ func pinInfo(id string) *result {
 			videoo = getStream(jsn.ResourceResponse.Data.StoryPinData.Pages[0].Video.VideoList.VHLSV3MOBILE.URL)
 		}
 	}
-
-	fmt.Println(jsn)
 
 	return &result{
 		Title:          jsn.ResourceResponse.Data.Title,

@@ -17,12 +17,6 @@ func init() {
 		Body:        map[string]interface{}{},
 
 		Code: func(c *fiber.Ctx) error {
-			var total any = VS.Read("picsart-token")
-			if total == nil {
-				total = 0
-			}
-			VS.Write("picsart-token", total.(int)+1)
-
 			return c.Status(200).JSON(fiber.Map{
 				"token": PICT,
 			})

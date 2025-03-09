@@ -30,12 +30,6 @@ func init() {
 		Body: map[string]interface{}{},
 
 		Code: func(c *fiber.Ctx) error {
-			var total any = VS.Read("snapsave")
-			if total == nil {
-				total = 0
-			}
-			VS.Write("snapsave", total.(int)+1)
-			
 			params := new(UrlQuery)
 
 			if err := c.QueryParser(params); err != nil {
