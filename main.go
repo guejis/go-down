@@ -81,7 +81,9 @@ func main() {
 	}
 
 	app.Get("/", func(c *fiber.Ctx) error {
-		return c.Redirect("https://syntx-api.vercel.app")
+		return c.Status(200).JSON(fiber.Map{
+			"message": "Hello World",
+		})
 	})
 
 	app.Get("/list-endpoint", func(c *fiber.Ctx) error {
