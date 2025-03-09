@@ -41,8 +41,8 @@ var NewRegister *Register = &Register{}
 var VS *helper.Visitor = &helper.Visitor{}
 
 // var BASE_API string = "http://localhost:3030"
-var BASE_API string = "https://go-down-production.up.railway.app"
-// var BASE_API string = "https://api-go.fusions.my.id"
+// var BASE_API string = "https://go-down-production.up.railway.app"
+var BASE_API string = "https://api-go.fusions.my.id"
 
 func (r *Register) RegisterProvider(i RegisterComponent) {
 	r.Api = append(r.Api, i)
