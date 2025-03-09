@@ -7,16 +7,16 @@ import (
 )
 
 type RegisterComponent struct {
-	ID 					int
+	ID          int
 	Endpoint    string
 	Method      string
 	Title       string
 	Description string
-	Type 				string
+	Type        string
 	Params      map[string]interface{}
 	Body        map[string]interface{}
 	Code        func(*fiber.Ctx) error
-	Demo 				string
+	Demo        string
 }
 
 type Register struct {
@@ -32,14 +32,17 @@ type IDQuery struct {
 }
 
 type SearchQuery struct {
-	Q string `query:"q"`
+	Q     string `query:"q"`
 	Limit string `query:"limit"`
-	Page string `query:"page"`
+	Page  string `query:"page"`
 }
 
 var NewRegister *Register = &Register{}
 var VS *helper.Visitor = &helper.Visitor{}
-var BASE_API string = "http://localhost:3030"
+
+// var BASE_API string = "http://localhost:3030"
+var BASE_API string = "https://go-down-production.up.railway.app"
+// var BASE_API string = "https://api-go.fusions.my.id"
 
 func (r *Register) RegisterProvider(i RegisterComponent) {
 	r.Api = append(r.Api, i)
